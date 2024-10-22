@@ -8,15 +8,23 @@ function criaCartao(categoria, pergunta, resposta){
     cartao.innerHTML = `
     
     <div class="cartao__conteudo">
-    <h3 class="programacao">Geografia</h3>
+    <h3>${categoria}</h3>
     <div class="cartao__conteudo__pergunta">
-    <p> Qual é a capital da Tailândia?</p>
+    <p>${pergunta}</p>
     </div>
     <div class="cartao__conteudo__resposta">
-    <p> Bangkok.</p>
+    <p>${resposta}</p>
     </div>
     </div>
     
     `
+    let respostaEstaVisivel = false
+    function viraCartao() {
+respostaEstaVisivel= !respostaEstaVisivel
+cartao.classList.toggle('active', respostaEstaVisivel)
+}  
+
+cartao.addEventListener('click', viraCartao)
+
     container.appendChild(cartao)
 }
